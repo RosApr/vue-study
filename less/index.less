@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+@width: 200px;
+@height: 100px;
+div {
+  width: 7 * @width;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -@height/2;
+  margin-left: -7 * @width / 2;
+  border-bottom: 1px solid #d3d3d3;
+  box-shadow: 0 10px 5px -5px rgba(0, 0, 0, .8);
+  & > span {
+    width: @width;
+    height: @height;
+    line-height: @height;
+    text-align: center;
+    display: inline-block;
+    font-size: 60px;
+    color: #000;
+  }
+}
