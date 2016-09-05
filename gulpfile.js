@@ -5,12 +5,14 @@ var gulp = require("gulp"),
     watch = require("gulp-watch"),
     uglify = require("gulp-uglify"),
     minifycss = require("gulp-minify-css"),
-    jshint = require("gulp-jshint");
+    jshint = require("gulp-jshint"),
+    autoprefixer = require("gulp-autoprefixer");
 
 gulp.task("styles", function(){
     gulp.src("less/index.less")
         .pipe(less())
-        .pipe(minifycss())
+        // .pipe(minifycss())
+        .pipe(autoprefixer('last 2 versions'))
         .pipe(gulp.dest("assets/css"))
 });
 

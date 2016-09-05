@@ -15,7 +15,6 @@ new Vue({
             (++this.pos) && (this.pos >= this.timeArray.length) && (this.pos = 0);
 
             this.$set("timeArray", currentTimeArray);
-
         },
         getRandomHexColor: function(){
             return this.color =  "#" + ("0000" + Math.random() * 0xFFFFFFFF << 0).toString(16).slice(-6);
@@ -24,9 +23,11 @@ new Vue({
             setInterval(this.getNewDate, 1000);
         },
         setColor: function(pos){
-            document.getElementsByTagName("span")[pos].style.color = this.color;
+            var $currentSpan = document.getElementsByTagName("span")[pos];
+            if($currentSpan){
+                $currentSpan.style.color = this.color;
+            }
         }
-
     },
     watch: {
         "pos": function(){
@@ -38,5 +39,4 @@ new Vue({
         color: "",
         timeArray: []
     }
-
 });
